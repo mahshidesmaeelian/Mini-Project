@@ -2,7 +2,7 @@ from clip import Clip
 from anime import Anime
 from movie import Movie
 from series import Series
-#from Actors import Actors
+
 
 
 class Main:
@@ -117,7 +117,7 @@ class Main:
 
             else:
                 print('wrong info')
-                break
+                
 
         self.showmenu()
 
@@ -178,14 +178,14 @@ class Main:
 
 
     def search_media(self):
-        pass
+        start_dur = int(input('enter first media duration: '))
+        end_dur = int(input('enter second media duration: '))
 
-        # start_duration = input('enter the first duration:')
-        # start_duration = start_duration.split(':')
+        for i in self.media_list:
+            if start_dur < i.duration < end_dur:
+                print(i.show_info())
 
-        # end_duration = input('enter the second duration:')
-
-        # for i in self.media_list:
+        self.showmenu()
 
 
     def save_and_exit(self):

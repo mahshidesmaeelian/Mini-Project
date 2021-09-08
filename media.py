@@ -21,5 +21,7 @@ class Media:
             Actors(i).actors()
 
     def download_media(self):
-        pytube.YouTube(self.url).streams.first().download()
+        link = self.url
+        first_stream = pytube.YouTube(link).streams.first()
+        first_stream.download(output_path='Downloads',filename='newmedia.mp4')
             
