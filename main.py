@@ -59,11 +59,6 @@ class Main:
             i.show_info() 
 
         self.showmenu()  
-
-    def show_actors_info(self):
-        for i in self.casts_list:
-            i.show_cast_info()
-        self.showmenu()
         
 
     def add_media(self):
@@ -88,7 +83,7 @@ class Main:
                 singer = (input('enter name of the singer:'))
                 info_list = [id,name,category,imdb_rate,url,duration,cast,concept,singer]
                 self.media_list.append(Clip(info_list))
-                print(f'{info_list[1]}added succesfully!')
+                print(f'{info_list[1]} added succesfully!')
                 break
 
             elif category == 'movie':
@@ -96,7 +91,7 @@ class Main:
                 #info_list.append(genre)
                 info_list = [id,name,category,imdb_rate,url,duration,cast,genre]
                 self.media_list.append(Movie(info_list))
-                print(f'{info_list[1]}added succesfully!')
+                print(f'{info_list[1]} added succesfully!')
                 break
 
             elif category == 'anime':
@@ -104,7 +99,7 @@ class Main:
                 episodes = int(input('enter number of episodes:'))
                 info_list = [id,name,category,imdb_rate,url,duration,cast,seasons,episodes]
                 self.media_list.append(Anime(info_list))
-                print(f'{info_list[1]}added succesfully!')
+                print(f'{info_list[1]} added succesfully!')
                 break
 
             elif category == 'series':
@@ -112,13 +107,13 @@ class Main:
                 episodes = int(input('enter number of episodes:'))
                 info_list = [id,name,category,imdb_rate,url,duration,cast,seasons,episodes]
                 self.media_list.append(Series(info_list))
-                print(f'{info_list[1]}added succesfully!')
+                print(f'{info_list[1]} added succesfully!')
                 break 
 
             else:
                 print('wrong info')
                 
-
+        self.show_info()
         self.showmenu()
 
     def edit_media(self):
@@ -136,25 +131,27 @@ class Main:
 
                 if i.category == 'clip':
                    i =  i.edit_clips_info()
+                   print('data has been edited successfuly!')
                     
 
                 elif i.category == 'movie':                   
-                   i = i.edit_movies_info()  
+                   i = i.edit_movies_info() 
+                   print('data has been edited successfuly!') 
 
 
                 elif i.category == 'anime':                    
                     i = i.edit_animes_info()
+                    print('data has been edited successfuly!')
                                        
                 elif i.category == 'series':                    
                     i= i.edit_series_info()
+                    print('data has been edited successfuly!')
 
                 else:
                     print('error!!wrong input!')
 
 
-        else:
-            print('this id doesnt exist in the media list!')
-
+        self.show_info()
         self.showmenu()
 
 
@@ -173,7 +170,7 @@ class Main:
             else:
                 print('error!!data not found!')
 
-
+        self.show_info()
         self.showmenu()
 
 
@@ -206,8 +203,8 @@ class Main:
         print('your data has been saved succesfully :)')
         myfile.close()
 
-        # self.show_info()
-        # self.showmenu()
+        self.show_info()
+        
         
 
         
@@ -220,6 +217,7 @@ class Main:
         else:
             print(f'theres no media named {input_name}')
 
+        
         self.showmenu()
 
     def showmenu(self):
